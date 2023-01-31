@@ -14,6 +14,11 @@ public class Book {
 		this.editore = editore;
 	}
 	
+	@Override
+	public String toString() {
+		return "Libro [titolo=" + titolo + ", numeroPagine=" + numeroPagine + ", autore=" + autore + ", editore=" + editore + "]";
+	}
+	
 	// START REGION GETTERS - SETTERS
 	public String getTitolo() {
 		return titolo;
