@@ -27,13 +27,24 @@ public class Catalogo {
 		// Aperto inputContainer
 		Scanner inputContainer = new Scanner(System.in);
 		
-		System.out.print("Quanti libri vuoi inserire? ");
-		int numeroLibri = Integer.parseInt(inputContainer.nextLine());
+		int numeroLibri = 0;
+		
+		do {
+			try {
+				System.out.print("Quanti libri vuoi inserire? (max.10) ");
+				numeroLibri = Integer.parseInt(inputContainer.nextLine());
+				if (numeroLibri < 1 || numeroLibri > 10)
+					System.out.println("Numero non valido, intervallo accettato da 1 a 10 compresi...");
+			} catch (Exception error) {
+				System.out.println("Input non valido. Inserire solo un numero intero!");
+			}
+			
+		} while (numeroLibri < 1 || numeroLibri > 10);
+		
 		
 		Book [] collezioneLibri = new Book[numeroLibri];
 		
-		for (int i = 0; i < numeroLibri; i++) {
-				
+		for (int i = 0; i < numeroLibri; i++) {			
 			System.out.print("Inserisci titolo del libro: ");
 			String titolo = inputContainer.nextLine();
 			
@@ -48,8 +59,10 @@ public class Catalogo {
 			
 			Book libro = new Book(titolo, numeroPagine, autore, editore);
 			collezioneLibri[i] = libro;
-			
-			System.out.println("Inserito il libro: " + libro.toString());
+		}
+		
+		for (int i = 0; i < numeroLibri; i++) {
+			System.out.println("Fa parte della tua collezione: " + collezioneLibri[i].toString());
 		}
 		
 		inputContainer.close();
