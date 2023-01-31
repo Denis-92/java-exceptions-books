@@ -31,39 +31,47 @@ public class Catalogo {
 		
 		do {
 			try {
-				System.out.print("Quanti libri vuoi inserire? (max.10) ");
+				System.out.print("Quanti libri vuoi inserire? (max.5) ");
 				numeroLibri = Integer.parseInt(inputContainer.nextLine());
-				if (numeroLibri < 1 || numeroLibri > 10)
-					System.out.println("Numero non valido, intervallo accettato da 1 a 10 compresi...");
+				if (numeroLibri < 1 || numeroLibri > 5)
+					System.out.println("Numero non valido, intervallo accettato da 1 a 5 compresi...");
 			} catch (Exception error) {
 				System.out.println("Input non valido. Inserire solo un numero intero!");
 			}
 			
-		} while (numeroLibri < 1 || numeroLibri > 10);
+		} while (numeroLibri < 1 || numeroLibri > 5);
 		
 		
 		Book [] collezioneLibri = new Book[numeroLibri];
 		
-		for (int i = 0; i < numeroLibri; i++) {			
-			System.out.print("Inserisci titolo del libro: ");
-			String titolo = inputContainer.nextLine();
-			
-			System.out.print("Inserisci numero delle pagina del libro: ");
-			int numeroPagine = Integer.parseInt(inputContainer.nextLine());
-			
-			System.out.print("Inserisci nome dell'autore: ");
-			String autore = inputContainer.nextLine();
-			
-			System.out.print("Inserisci nome dell'editore: ");
-			String editore = inputContainer.nextLine();
-			
-			Book libro = new Book(titolo, numeroPagine, autore, editore);
-			collezioneLibri[i] = libro;
+		try {			
+			for (int i = 0; i < numeroLibri; i++) {
+				System.out.print("Inserisci titolo del libro: ");
+				String titolo = inputContainer.nextLine();
+				
+				System.out.print("Inserisci numero delle pagina del libro: ");
+				int numeroPagine = Integer.parseInt(inputContainer.nextLine());
+				
+				System.out.print("Inserisci nome dell'autore: ");
+				String autore = inputContainer.nextLine();
+				
+				System.out.print("Inserisci nome dell'editore: ");
+				String editore = inputContainer.nextLine();
+				
+				Book libro = new Book(titolo, numeroPagine, autore, editore);
+				collezioneLibri[i] = libro;
+				
+				
+			}		
+		} catch (Exception error) {
+			System.out.println("Errore: titolo, autore o editore non inseriti!");
 		}
 		
-		for (int i = 0; i < numeroLibri; i++) {
-			System.out.println("Fa parte della tua collezione: " + collezioneLibri[i].toString());
-		}
+//		for (int i = 0; i < numeroLibri; i++) {
+//			boolean tuttoValido = isEverythingValid(collezioneLibri[i].getTitolo(), collezioneLibri[i].getAutore(), collezioneLibri[i].getEditore());
+//			if ()
+//			System.out.println("Fa parte della tua collezione: " + collezioneLibri[i].toString());
+//		}
 		
 		inputContainer.close();
 		// Chiuso inputContainer
