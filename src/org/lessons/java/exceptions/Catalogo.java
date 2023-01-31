@@ -64,7 +64,7 @@ public class Catalogo {
 				
 			}		
 		} catch (Exception error) {
-			System.out.println("Errore: titolo, autore o editore non inseriti!");
+			System.out.println("Errore: uno o più campi non sono stati inseriti o non sono validi!");
 		}
 		
 //		for (int i = 0; i < numeroLibri; i++) {

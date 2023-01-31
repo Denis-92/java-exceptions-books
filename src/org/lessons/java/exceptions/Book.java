@@ -12,6 +12,7 @@ public class Book {
 		this.titolo = titolo;
 		validazioneTitolo(titolo);
 		this.numeroPagine = numeroPagine;
+		validazioneNumeroPagine(numeroPagine);
 		this.autore = autore;
 		validazioneAutore(autore);
 		this.editore = editore;
@@ -20,6 +21,11 @@ public class Book {
 	
 	public void validazioneTitolo(String titolo) throws Exception {
 		if (titolo.length() == 0)
+			throw new Exception();
+	}
+	
+	public void validazioneNumeroPagine(int numeroPagine) throws Exception {
+		if (numeroPagine < 1)
 			throw new Exception();
 	}
 	
@@ -58,8 +64,9 @@ public class Book {
 		return numeroPagine;
 	}
 
-	public void setNumeroPagine(int numeroPagine) {
+	public void setNumeroPagine(int numeroPagine) throws Exception {
 		this.numeroPagine = numeroPagine;
+		validazioneNumeroPagine(numeroPagine);
 	}
 
 	public String getAutore() {
