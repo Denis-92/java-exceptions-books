@@ -56,8 +56,8 @@ public class Book {
 	}
 
 	public void setTitolo(String titolo) throws Exception {
-		this.titolo = titolo;
 		validazioneTitolo(titolo);
+		this.titolo = titolo;		
 	}
 
 	public int getNumeroPagine() {
@@ -65,8 +65,8 @@ public class Book {
 	}
 
 	public void setNumeroPagine(int numeroPagine) throws Exception {
-		this.numeroPagine = numeroPagine;
 		validazioneNumeroPagine(numeroPagine);
+		this.numeroPagine = numeroPagine;		
 	}
 
 	public String getAutore() {
@@ -74,8 +74,8 @@ public class Book {
 	}
 
 	public void setAutore(String autore) throws Exception {
-		this.autore = autore;
 		validazioneAutore(autore);
+		this.autore = autore;
 	}
 
 	public String getEditore() {
@@ -83,8 +83,8 @@ public class Book {
 	}
 
 	public void setEditore(String editore) throws Exception {
-		this.editore = editore;
 		validazioneEditore(editore);
+		this.editore = editore;		
 	}
 	// END REGION GETTERS - SETTERS
 }
